@@ -38,3 +38,5 @@ wandb/
 # OS
 .DS_Store
 Thumbs.db
+data/
+*.nc
