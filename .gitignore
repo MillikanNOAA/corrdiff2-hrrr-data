@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+*stderr*
+*stdout*
+checkpoints_regression/
+tensorboard/
+*.sif
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ML/Data
+*.h5
+*.pkl
+*.pth
+*.ckpt
+mlruns/
+wandb/
+*.tfrecord
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

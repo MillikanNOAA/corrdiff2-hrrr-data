@@ -1,0 +1,45 @@
+dataset:
+  type: hrrr_mini
+  data_path: ./data/hrrr_mini/hrrr_mini_train.nc
+  stats_path: ./data/hrrr_mini/stats.json
+  output_variables:
+  - 10u
+  - 10v
+model:
+  name: regression
+  hr_mean_conditioning: false
+  model_args:
+    N_grid_channels: 4
+    embedding_type: zero
+    model_channels: 64
+    channel_mult:
+    - 1
+    - 2
+    - 2
+    attn_resolutions:
+    - 16
+training:
+  hp:
+    training_duration: 2000000
+    total_batch_size: 256
+    batch_size_per_gpu: auto
+    lr: 0.0002
+    grad_clip_threshold: null
+    lr_decay: 1
+    lr_rampup: 0
+    lr_decay_rate: 500000.0
+  perf:
+    fp_optimizations: amp-bf16
+    dataloader_workers: 4
+    songunet_checkpoint_level: 0
+  io:
+    regression_checkpoint_path: null
+    print_progress_freq: 10000
+    save_checkpoint_freq: 5000
+    save_n_recent_checkpoints: -1
+    validation_freq: 5000
+    validation_steps: 10
+wandb:
+  mode: offline
+  results_dir: ./wandb
+  watch_model: false
