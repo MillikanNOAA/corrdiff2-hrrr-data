@@ -1,4 +1,9 @@
 <!-- markdownlint-disable -->
+
+NVidia CorrDiff modified to run on Oso - should run on Ursa as well
+
+
+
 # Generative Correction Diffusion Model (CorrDiff) for Km-scale Atmospheric Downscaling
 
 
