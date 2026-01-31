@@ -40,3 +40,5 @@ wandb/
 Thumbs.db
 data/
 *.nc
+data/
+*.nc
