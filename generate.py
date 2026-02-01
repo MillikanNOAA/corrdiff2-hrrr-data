@@ -28,17 +28,15 @@ import numpy as np
 import nvtx
 import netCDF4 as nc
 from physicsnemo.distributed import DistributedManager
-from physicsnemo.utils.logging import PythonLogger, RankZeroLoggingWrapper
+from physicsnemo.launch.logging.console import PythonLogger, RankZeroLoggingWrapper
 from physicsnemo.experimental.models.diffusion.preconditioning import (
     tEDMPrecondSuperRes,
 )
-from physicsnemo.diffusion.multi_diffusion import GridPatching2D
+from physicsnemo.utils.patching import GridPatching2D
 from physicsnemo import Module
-from physicsnemo.diffusion.samplers import (
-    deterministic_sampler,
-    stochastic_sampler,
-)
-from physicsnemo.diffusion.generate import regression_step, diffusion_step
+from physicsnemo.utils.diffusion.deterministic_sampler import deterministic_sampler
+from physicsnemo.utils.diffusion.stochastic_sampler import stochastic_sampler
+from physicsnemo.utils.corrdiff.utils import regression_step, diffusion_step
 
 from helpers.generate_helpers import (
     get_dataset_and_sampler,
