@@ -5,8 +5,8 @@
 #SBATCH --partition=o-h100
 
 #SBATCH -J corrdiff-reg
-#SBATCH -o xorrdiff_stdout_%J.txt
-#SBATCH -e yorrdiff_stderr_%J.txt
+#SBATCH -o xreg_stdout_%J.txt
+#SBATCH -e yreg_stderr_%J.txt
 
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=1          # one launcher task per node

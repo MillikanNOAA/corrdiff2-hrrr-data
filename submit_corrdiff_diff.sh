@@ -4,9 +4,9 @@
 #SBATCH --qos=admin
 #SBATCH --partition=o-h100
 
-#SBATCH -J corrdiff-train
-#SBATCH -o xxrrdiff_stdout_%J.txt
-#SBATCH -e yyrrdiff_stderr_%J.txt
+#SBATCH -J corrdiff-diff
+#SBATCH -o xdiff_stdout_%J.txt
+#SBATCH -e ydiff_stderr_%J.txt
 
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=1          # one launcher task per node
@@ -76,7 +76,7 @@ srun --ntasks-per-node=1 \
       --rdzv_backend=c10d \
       --rdzv_endpoint=${MASTER_ADDR}:${MASTER_PORT} \
       --rdzv_id=${SLURM_JOB_ID} \
-      train.py --config-name=config_training_hrrr_mini_diffusion.yaml   ++training.io.regression_checkpoint_path=/tds_scratch2/SYSADMIN/nesccmgmt/Ron.Millikan/devl/corrdiff/corrdiff2/checkpoints_regression/UNet.0.2000128.mdlus
+      train.py --config-name=config_training_hrrr_mini_diffusion.yaml   ++training.io.regression_checkpoint_path=/tds_scratch2/SYSADMIN/nesccmgmt/Ron.Millikan/devl/corrdiff/corrdiff/checkpoints_regression/UNet.0.2000128.mdlus
     "
 
 training_exit_code=$?

@@ -5,8 +5,8 @@
 #SBATCH --partition=o-h100
 
 #SBATCH -J corrdiff-gen
-#SBATCH -o xxxrdiff_stdout_%J.txt
-#SBATCH -e yyyrdiff_stderr_%J.txt
+#SBATCH -o xgen_stdout_%J.txt
+#SBATCH -e ygen_stderr_%J.txt
 
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=1          # one launcher task per node
@@ -77,12 +77,10 @@ srun --ntasks-per-node=1 \
       --rdzv_endpoint=${MASTER_ADDR}:${MASTER_PORT} \
       --rdzv_id=${SLURM_JOB_ID} \
       generate.py --config-name="config_generate_hrrr_mini.yaml" \
-      ++generation.io.res_ckpt_filename=/tds_scratch2/SYSADMIN/nesccmgmt/Ron.Millikan/devl/corrdiff/corrdiff2/checkpoints_diffusion/EDMPrecondSuperResolution.0.7995136.mdlus \
-      ++generation.io.reg_ckpt_filename=/tds_scratch2/SYSADMIN/nesccmgmt/Ron.Millikan/devl/corrdiff/corrdiff2/checkpoints_regression/UNet.0.1995008.mdlus
+      ++generation.io.res_ckpt_filename=/tds_scratch2/SYSADMIN/nesccmgmt/Ron.Millikan/devl/corrdiff/corrdiff/checkpoints_diffusion/EDMPrecondSuperResolution.0.7995136.mdlus \
+      ++generation.io.reg_ckpt_filename=/tds_scratch2/SYSADMIN/nesccmgmt/Ron.Millikan/devl/corrdiff/corrdiff/checkpoints_regression/UNet.0.1995008.mdlus
     "
 
-####      ++generation.io.res_ckpt_filename=/tds_scratch2/SYSADMIN/nesccmgmt/Ron.Millikan/devl/corrdiff/corrdiff2/checkpoints_diffusion/EDMPrecondSuperResolution.0.8000000.mdlus \
-####      ++generation.io.reg_ckpt_filename=/tds_scratch2/SYSADMIN/nesccmgmt/Ron.Millikan/devl/corrdiff/corrdiff2/checkpoints_regression/UNet.0.2000128.mdlus
 training_exit_code=$?
 
 stopTime=$(date +%s)
